@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mmendiol <mmendiol@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/26 16:59:34 by mmendiol          #+#    #+#             */
+/*   Updated: 2023/10/26 19:24:02 by mmendiol         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <fcntl.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -109,6 +121,24 @@ void	*ft_memmove(void *dest, const void *src, size_t len)
 	return (dest);
 }
 
+char	*ft_strdup(const char *s)
+{
+	char	*dst;
+	int		i;
+
+	i = 0;
+	dst = ft_calloc(ft_strlen(s) + 1, sizeof(char));
+	if (!dst)
+		return (NULL);
+	while (s[i])
+	{
+		dst[i] = s[i];
+		i++;
+	}
+	dst[i] = '\0';
+	return (dst);
+}
+
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*dst;
@@ -121,8 +151,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
  	j = 0;
  	lens1 = ft_strlen(s1);
  	lens2 = ft_strlen(s2);
- 	if (!s1 && !s2)
- 		return (NULL);
+ 	if (!s1)
+ 		return (ft_strdup(s2));
  	dst = ft_calloc((lens1 + lens2 + 1), sizeof(char));
  	if (!dst)
  		return (NULL);
@@ -152,23 +182,6 @@ void	ft_strlcpy(char *dest, const char *src, size_t dstsize)
 	}
 }
 
-char	*ft_strdup(const char *s)
-{
-	char	*dst;
-	int		i;
-
-	i = 0;
-	dst = ft_calloc(ft_strlen(s) + 1, sizeof(char));
-	if (!dst)
-		return (NULL);
-	while (s[i])
-	{
-		dst[i] = s[i];
-		i++;
-	}
-	dst[i] = '\0';
-	return (dst);
-}
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	size_t	i;
@@ -205,6 +218,7 @@ int	main(void)
 	char *back = NULL;
 	char buffer[BUFFER_SIZE];
 	int	i = 0;
+	int	j = 0;
 	size_t len;
 
 
@@ -218,18 +232,30 @@ int	main(void)
 	while (nb_bytes != 0 || nb_char < BUFFER_SIZE)
 	{
 		nb_char += nb_bytes;
-		nb_bytes = read(fd, buffer, sizeof(buffer));
+		nb_bytes = read(fd, buffer, BUFFER_SIZE);
 		tmp_all = all;
 		all = ft_strjoin(all, buffer);
-		buffer[BUFFER_SIZE - 1] = '\0';
+		all[BUFFER_SIZE] = '\0';
+
 		// comprobar a qui si en all tengo el \n y ver 
-		while (all && ft_strchr(all, '\n'))
+		while (all || ft_strchr(all, '\n'))
 		{
 			if (all[i] == '\n')
 			{
-				len = ft_strlen(all) - i;
-				front = ft_substr(all, 0, i + 1);
-				back = ft_substr(all, i , len);
+				len = ft_strlen(all) - i + 1;
+				if (!front && ft_strchr(all, '\n'))
+				{
+					front = ft_substr(all, 0, i + 1);
+					// devolver lo que tengo en front
+					j = i;
+				}
+				else
+				{
+					front = ft_substr(back, 0, i - j);
+					j = i;
+				}
+				back = ft_substr(all, i + 1 , len);
+
 				i++;
 			}
 			else
