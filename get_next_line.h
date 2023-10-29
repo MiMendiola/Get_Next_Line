@@ -24,8 +24,9 @@
 # endif
 
 // MAIN FUNCTIONS
-void    free_all(char **to_free);
-char    *read_till_find(int fd, char *str_static);
+void	free_all(char **to_free);
+void	relocate_line(char **str_static, char **front);
+char	*read_till_find(int fd, char *str_static);
 char	*get_next_line(int fd);
 
 // UTILS FUNCTIONS

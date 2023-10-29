@@ -12,7 +12,7 @@
 
 #include "get_next_line.h"
 
-int	ft_strlen(const char *str)
+int	ft_strlen(char *str)
 {
 	int	i;
 
@@ -22,10 +22,12 @@ int	ft_strlen(const char *str)
 	return (i);
 }
 
-// Este strchr modificado nos comprueba que la string que nos pasan primero exista y que no halla errores y despues te devolvera o null o si encuentra el caracter \n/ \0 nos mandara la longuitud hasta dicho caracter.
-int	ft_strchr(const char *s, int c)
+/* In this function we search the character c and we will obtain 0 or 1
+ *  1 is the character is in the string
+ *  0 is the character is not there	*/
+int	ft_strchr(char *s, int c)
 {
-	int				i;
+	int	i;
 
 	i = 0;
 	if (!s)
@@ -38,7 +40,7 @@ int	ft_strchr(const char *s, int c)
 	return (0);
 }
 
-char	*ft_strdup(const char *s)
+char	*ft_strdup(char *s)
 {
 	char	*dst;
 	int		i;
@@ -58,27 +60,27 @@ char	*ft_strdup(const char *s)
 
 char	*ft_strjoin(char *main, char *buffer)
 {
- 	int		i;
- 	int		j;
+	int		i;
+	int		j;
 	int		k;
 	char	*dst;
 
- 	i = 0;
- 	j = 0;
+	i = 0;
+	j = 0;
 	k = 0;
 	if (!main || !buffer)
 		return (NULL);
- 	dst = malloc((ft_strlen(main) + ft_strlen(buffer) + 1) * sizeof(char));
- 	if (!dst)
- 		return (NULL);
- 	while (main[j])
- 		dst[i++] = main[j++];
- 	while (buffer[k])
- 		dst[i++] = buffer[k++];
+	dst = malloc((ft_strlen(main) + ft_strlen(buffer) + 1) * sizeof(char));
+	if (!dst)
+		return (NULL);
+	while (main[j])
+		dst[i++] = main[j++];
+	while (buffer[k])
+		dst[i++] = buffer[k++];
 	dst[i] = '\0';
 	// Checar mañana
 	// free(buffer);
- 	return (dst);
+	return (dst);
 }
 
 char	*ft_substr(char *s, unsigned int start, size_t len)
