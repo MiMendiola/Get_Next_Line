@@ -6,7 +6,7 @@
 /*   By: mmendiol <mmendiol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 16:59:34 by mmendiol          #+#    #+#             */
-/*   Updated: 2023/10/31 12:17:07 by mmendiol         ###   ########.fr       */
+/*   Updated: 2023/10/31 12:29:55 by mmendiol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,14 +68,18 @@ char	*ft_strjoin(char *main, char *buffer)
 	i = 0;
 	j = 0;
 	k = 0;
-	if (!buffer)
+	if (!main)
+	{
+		main = malloc(sizeof(char) * 1);
+		main[0] = '\0';
+	}
+	if (!main)
 		return (NULL);
 	dst = malloc((ft_strlen(main) + ft_strlen(buffer) + 1) * sizeof(char));
 	if (!dst)
 		return (NULL);
-	if (main)
-		while (main && main[j])
-			dst[i++] = main[j++];
+	while (main && main[j])
+		dst[i++] = main[j++];
 	while (buffer && buffer[k])
 		dst[i++] = buffer[k++];
 	dst[i] = '\0';
