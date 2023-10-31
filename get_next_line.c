@@ -6,7 +6,7 @@
 /*   By: mmendiol <mmendiol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 16:59:28 by mmendiol          #+#    #+#             */
-/*   Updated: 2023/10/29 22:13:45 by mmendiol         ###   ########.fr       */
+/*   Updated: 2023/10/31 12:17:15 by mmendiol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,17 +28,16 @@ void	relocate_line(char **str_static, char **front)
 
 	i = 0;
 	j = -1;
-	if (!*str_static)
-		return ;
-	while (*str_static && (*str_static)[i] != '\n')
+	back = NULL;
+	if (!*str_static || str_static[0] == '\0')
+		*front = NULL;
+	while ((*str_static)[i] != '\0' && (*str_static)[i] != '\n')
 		i++;
-	*front = malloc((i + 2) * sizeof(char));
+	i++;
+	*front = ft_substr(*str_static, 0, i);
 	if (!*front)
 		return ;
-	*front = ft_substr(*str_static, 0, (i + 1));
 	back = *str_static;
-	while ((*str_static)[i] == '\n')
-		i++;
 	*str_static = ft_substr(*str_static, i, (ft_strlen(*str_static) - i));
 	free(back);
 }
@@ -47,24 +46,19 @@ void	relocate_line(char **str_static, char **front)
 char	*read_till_find(int fd, char *str_static)
 {
 	int		nb_bytes;
-	char	*new_read;
+	char	new_read[BUFFER_SIZE + 1];
 
-	new_read = malloc((BUFFER_SIZE) * sizeof(char));
-	if (!new_read)
-		return (NULL);
-	while (!ft_strchr(str_static, '\n') || nb_bytes < BUFFER_SIZE)
+	nb_bytes = 1;
+	while (!ft_strchr(str_static, '\n') && nb_bytes != 0)
 	{
 		nb_bytes = read(fd, new_read, BUFFER_SIZE);
 		if (nb_bytes < 0)
-		{
-			free_all(&new_read);
-			return (NULL);
-		}
+			return (free(&str_static), NULL);
+		if (nb_bytes == 0)
+			break ;
 		new_read[nb_bytes] = '\0';
 		str_static = ft_strjoin(str_static, new_read);
 	}
-	// chequear mañana
-	// free_all(&new_read);
 	return (str_static);
 }
 
@@ -72,9 +66,14 @@ char	*read_till_find(int fd, char *str_static)
 char	*get_next_line(int fd)
 {
 	static char	*main_str;
+	char		*print;
 
-	// char            *print;
-	if (fd < 0 || BUFFER_SIZE <= 0)
-		free_all(&main_str);
-	return (NULL);
+	print = NULL;
+	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
+		return (free_all(&main_str), NULL);
+	main_str = read_till_find(fd, main_str);
+	if (!main_str)
+		return (free_all(&main_str), NULL);
+	relocate_line(&main_str, &print);
+	return (print);
 }

@@ -6,13 +6,13 @@
 /*   By: mmendiol <mmendiol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 16:59:34 by mmendiol          #+#    #+#             */
-/*   Updated: 2023/10/29 22:13:54 by mmendiol         ###   ########.fr       */
+/*   Updated: 2023/10/31 12:17:07 by mmendiol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int	ft_strlen(char *str)
+int	ft_strlen(const char *str)
 {
 	int	i;
 
@@ -22,10 +22,10 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
-/* In this function we search the character c and we will obtain 0 or 1
- *  1 is the character is in the string
- *  0 is the character is not there	*/
-int	ft_strchr(char *s, int c)
+/*	Here we will check if in our string s we have the character that we pass
+ *	1 is that the character is there
+ *	0 is the character is not in the str	*/
+int	ft_strchr(const char *s, int c)
 {
 	int	i;
 
@@ -40,7 +40,7 @@ int	ft_strchr(char *s, int c)
 	return (0);
 }
 
-char	*ft_strdup(char *s)
+char	*ft_strdup(const char *s)
 {
 	char	*dst;
 	int		i;
@@ -68,18 +68,18 @@ char	*ft_strjoin(char *main, char *buffer)
 	i = 0;
 	j = 0;
 	k = 0;
-	if (!main || !buffer)
+	if (!buffer)
 		return (NULL);
 	dst = malloc((ft_strlen(main) + ft_strlen(buffer) + 1) * sizeof(char));
 	if (!dst)
 		return (NULL);
-	while (main[j])
-		dst[i++] = main[j++];
-	while (buffer[k])
+	if (main)
+		while (main && main[j])
+			dst[i++] = main[j++];
+	while (buffer && buffer[k])
 		dst[i++] = buffer[k++];
 	dst[i] = '\0';
-	// Checar mañana
-	// free(buffer);
+	free(main);
 	return (dst);
 }
 
@@ -90,9 +90,11 @@ char	*ft_substr(char *s, unsigned int start, size_t len)
 	char	*dst;
 
 	i = 0;
+	if (!s)
+		return (0);
 	maxlen = ft_strlen(s);
 	if (start >= maxlen)
-		return (ft_strdup(""));
+		return (NULL);
 	if (len > maxlen - start)
 		len = maxlen - start;
 	dst = malloc((len + 1) * sizeof(char));
