@@ -1,5 +1,9 @@
 # Get Next Line
 
+![Proyecto](https://img.shields.io/badge/GNL-Project-blue)
+![Licencia](https://img.shields.io/badge/Licencia-MIT-orange)
+![Versión](https://img.shields.io/badge/Versión-1.0-green)
+
 El objetivo de este proyecto es crear una funcion muy practica que podremos usar mas adelante y poder aprender el concepto de las `variables estaticas` en C.
 
 Tambien empezaremos a tocar los `files descriptors, (fd)` y a aprender como funcionan y como podremos recorrerlo independientemente de los caracteres que podamos leer, terminando leyendo todo el archivo. Y en mi resolucion aprenderemos a gestionarlas y beneficiarnos de las `referencias a punteros` para usar directamente la memoria de nuestros strings.
