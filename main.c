@@ -36,6 +36,7 @@
 // 	return (0);
 // }
 
+
 // #include <stdio.h>
 // int main()
 // {
@@ -68,6 +69,7 @@
 //     return (0);
 // }
 
+
 // #include <stdio.h>
 // #include <time.h>
 // int	main(void)
@@ -91,6 +93,7 @@
 // 	// system("leaks a.out");
 //  	return (0);
 // }
+
 
 // int main() {
 //     int fd;
@@ -124,6 +127,72 @@
 //     return 0;
 // }
 
+
+// int main(void)
+// {
+//     int     fd;
+//     char    *str;
+//     int     i;
+
+//     i = 0;
+//     fd = open("lotr.txt", O_RDONLY);
+//     //fd = 0;
+//     str = get_next_line(fd);
+//     while (str)
+//     {
+//         printf("line %i=>%s\n", i + 1, str);
+//         free(str);
+//         i++;
+//         str = get_next_line(fd);
+//     }
+//     printf("BUFFER_SIZE = %d\n", BUFFER_SIZE);
+//     system("leaks -q a.out");
+//     return (0);
+// }
+
+
+// #include <stdio.h>
+// int main()
+// {
+//     char    *line1;
+// 	char	*line2;
+//     int     fd1;
+// 	int		fd2;
+
+//     fd1 = open("prueba2.txt", O_RDONLY);
+//     fd2 = open("prueba2.txt", O_RDONLY);
+// 	if (fd1 == -1 || fd2 == -1)
+// 	{
+// 		close(fd1);
+// 		close(fd2);
+// 		return (0);
+// 	}
+// 	line1 = "";
+// 	line2 = "";
+//     while (line1 != NULL || line2 != NULL)
+//     {
+//         line1 = get_next_line(fd1);
+// 		line2 = get_next_line(fd2);
+// 		if (!line1 || !line2)
+// 		{
+// 			free (line1);
+// 			free (line2);
+// 			break;
+// 		}
+//         printf("%s", line1);
+//         printf("%s", line2);
+// 		free(line1);
+// 		free(line2);
+//     }
+// 	free(line1);
+// 	free(line2);
+// 	close(fd1);
+// 	close(fd2);
+// 	//system("leaks a.out");
+//     return (0);
+// }
+
+#include <fcntl.h>
 int main(void)
 {
     int     fd;
@@ -142,3 +211,15 @@ int main(void)
     printf("BUFFER_SIZE = %d\n", BUFFER_SIZE);
     return (0);
 }
+
+#include "get_next_line_bonus.h"
+#include "get_next_line_bonus.c"
+#include "get_next_line_utils_bonus.c"
+#include <fcntl.h>
+
+
+
+
+
+
+
