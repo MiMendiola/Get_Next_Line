@@ -11,7 +11,7 @@
 // 	char *buffer = NULL;
 
 
-// 	fd = open("./prueba.txt", O_RDONLY);
+// 	fd = open("./testers/prueba.txt", O_RDONLY);
 
 // 	while((buffer = get_next_line(fd)))
 // 	{
@@ -44,7 +44,7 @@
 //     int     fd;
 
 // 	//fd = 0;
-//     fd = open("prueba.txt", O_RDONLY);
+//     fd = open("./testers/prueba.txt", O_RDONLY);
 // 	if (fd == -1)
 // 	{
 // 		close(fd);
@@ -76,7 +76,7 @@
 // {
 //  	int fd;
 
-//  	fd = open("prueba.txt", O_RDONLY);
+//  	fd = open("./testers/prueba.txt", O_RDONLY);
 //  	char *s;
 // 	clock_t start = clock();
 //  	while ((s = get_next_line(fd)))
@@ -101,7 +101,7 @@
 //     char *print = NULL;
 
 //     // Abre el archivo (reemplaza "file.txt" con tu nombre de archivo)
-//     if ((fd = open("prueba.txt", O_RDONLY)) == -1) {
+//     if ((fd = open("./testers/prueba.txt", O_RDONLY)) == -1) {
 //         perror("Error al abrir el archivo");
 //         return 1;
 //     }
@@ -135,7 +135,7 @@
 //     int     i;
 
 //     i = 0;
-//     fd = open("lotr.txt", O_RDONLY);
+//     fd = open("./testers/lotr.txt", O_RDONLY);
 //     //fd = 0;
 //     str = get_next_line(fd);
 //     while (str)
@@ -159,8 +159,8 @@
 //     int     fd1;
 // 	int		fd2;
 
-//     fd1 = open("prueba2.txt", O_RDONLY);
-//     fd2 = open("prueba2.txt", O_RDONLY);
+//     fd1 = open("./testers/prueba2.txt", O_RDONLY);
+//     fd2 = open("./testers/prueba2.txt", O_RDONLY);
 // 	if (fd1 == -1 || fd2 == -1)
 // 	{
 // 		close(fd1);
@@ -200,7 +200,7 @@ int main(void)
     int     i;
 
     i = 0;
-    fd = open("prueba.txt", O_RDONLY);
+    fd = open("./testers/prueba.txt", O_RDONLY);
     while ((i <= 6))
     {
         str = get_next_line(fd);
