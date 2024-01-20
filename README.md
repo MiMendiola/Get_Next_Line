@@ -2,7 +2,7 @@
 
 ![Project](https://img.shields.io/badge/Project-GNL-blue)
 ![Licence](https://img.shields.io/badge/Licence-MIT-orange)
-[![Idioma](https://img.shields.io/badge/Idioma-Español-purple)](https://github.com/MiMendiola/Libft/tree/main/Documentation/es/README.md)
+[![Idioma](https://img.shields.io/badge/Idioma-Español-purple)](https://github.com/MiMendiola/Get_Next_Line/tree/main/Documentation/README.md)
 ![Version](https://img.shields.io/badge/Version-1.0-green)
 
 The aim of this project is to create a very practical function that we can use later and to learn the concept of `static variables` in C.
