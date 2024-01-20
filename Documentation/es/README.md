@@ -2,7 +2,7 @@
 
 ![Proyecto](https://img.shields.io/badge/Proyecto-GNL-blue)
 ![Licencia](https://img.shields.io/badge/Licencia-MIT-orange)
-[![Language](https://img.shields.io/badge/Language-English-purple)](https://github.com/MiMendiola/Libft/tree/main/Documentation/es/README.md)
+[![Language](https://img.shields.io/badge/Language-English-purple)](https://github.com/MiMendiola/Get_Next_Line#get-next-line)
 ![Versión](https://img.shields.io/badge/Versión-1.0-green)
 
 El objetivo de este proyecto es crear una funcion muy practica que podremos usar mas adelante y poder aprender el concepto de las `variables estaticas` en C.
