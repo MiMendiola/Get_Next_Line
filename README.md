@@ -32,7 +32,7 @@ We continue with our most important file, `get_next_line.c`, in which we will ha
 
 ---
 
-## Tabla de Contenidos
+## Table of Contents
 
 [GET_NEXT_LINE.C](./get_next_line.c)
 
@@ -44,7 +44,7 @@ We continue with our most important file, `get_next_line.c`, in which we will ha
 
 ---
 
-## Recomendaciones
+## Recommendations
 
 We can use functions that we have previously created in one of our previous project `Libft`, or we could also recreate them according to our needs.
 
@@ -61,7 +61,7 @@ Another thing to consider is that we need to be observant and know where we will
 
 ---
 
-## Contacto
+## Contact
 
 If you have any questions, suggestions, or comments about Get_Next_Line, feel free to contact me:
 
