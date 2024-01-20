@@ -34,13 +34,13 @@ Proseguimos con nuestro archivo mas importante `get_next_line.c` en el que tendr
 
 ## Tabla de Contenidos
 
-[GET_NEXT_LINE.C](./get_next_line.c)
+[GET_NEXT_LINE.C](../get_next_line.c)
 
-[GET_NEXT_LINE_UTILS.C](./get_next_line_utils.c)
+[GET_NEXT_LINE_UTILS.C](../get_next_line_utils.c)
 
-[GET_NEXT_LINE.H](./get_next_line.h)
+[GET_NEXT_LINE.H](../get_next_line.h)
 
-[BONUS](./bonus/)
+[BONUS](../bonus/)
 
 ---
 
