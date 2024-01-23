@@ -1,9 +1,15 @@
 # Get Next Line
 
-![Proyecto](https://img.shields.io/badge/Proyecto-GNL-blue)
-![Licencia](https://img.shields.io/badge/Licencia-MIT-orange)
-[![Change_Language](https://img.shields.io/badge/Change_Language-English-purple)](https://github.com/MiMendiola/Get_Next_Line#get-next-line)
-![Versión](https://img.shields.io/badge/Versión-1.0-green)
+<div>
+
+  ![Projecto](https://img.shields.io/badge/Projecto-Libft-blue)
+  ![Licencia](https://img.shields.io/badge/Licencia-MIT-orange)
+  ![Versión](https://img.shields.io/badge/Versión-1.0-green)
+  <a href="https://github.com/MiMendiola/Get_Next_Line#get-next-line" >
+    <img src="https://img.shields.io/badge/Change_Language-English-purple" align="right">
+  </a>
+
+</div>
 
 El objetivo de este proyecto es crear una funcion muy practica que podremos usar mas adelante y poder aprender el concepto de las `variables estaticas` en C.
 
