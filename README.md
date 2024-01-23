@@ -1,9 +1,15 @@
 # Get Next Line
 
-![Project](https://img.shields.io/badge/Project-GNL-blue)
-![Licence](https://img.shields.io/badge/Licence-MIT-orange)
-[![Cambiar_Idioma](https://img.shields.io/badge/Cambiar_Idioma-Español-purple)](https://github.com/MiMendiola/Get_Next_Line/tree/main/Documentation/README.es.md)
-![Version](https://img.shields.io/badge/Version-1.0-green)
+<div>
+
+  ![Project](https://img.shields.io/badge/Project-Libft-blue)
+  ![Licence](https://img.shields.io/badge/Licence-MIT-orange)
+  ![Version](https://img.shields.io/badge/Version-1.0-green)
+  <a href="https://github.com/MiMendiola/Get_Next_Line/tree/main/Documentation/README.es.md" >
+    <img src="https://img.shields.io/badge/Cambiar_Idioma-Español-purple" align="right">
+  </a>
+
+</div>
 
 The aim of this project is to create a very practical function that we can use later and to learn the concept of `static variables` in C.
 
