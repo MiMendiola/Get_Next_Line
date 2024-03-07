@@ -58,8 +58,8 @@ Use the VSC compiler, which will help review that our variable creations are don
 
 Before starting, we should be clear if we want to do it with the bonus part or not. In case of wanting to do it with bonuses, we should be clear about these 2 conditions:
 
-- Desarrolla get_next_line() con una sola variable estática.
-- Tu get_next_line tiene que ser capaz de gestionar múltiples fd a la vez, pudiendo ser de forma alterna y no deberemos perder el hilo de lectura de cada uno de los fd.
+- Develop get_next_line() with a single static variable.
+- Your get_next_line must be capable of managing multiple file descriptors at once, potentially in an alternating manner, without losing the reading thread of each file descriptor.
 
 Also, we must add `_bonus` in the bonus files.
 
